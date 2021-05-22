@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cyber-Sketch</title>
+  </head>
+  <body>
+    <div class="settings">
+      <div class="settings1">
+        <h2>Settings</h2>
+        <button id="rstbtn">Reset</button>
+        <h3 id="size">Size</h3>
+        <input type="range" min="16" max="100" id="scroll" value="16" />
+        <h3>Select Color</h3>
+        <div class="colourbtns">
+          <button id="blackbtn">Black</button>
+          <button id="rainbowbtn">Rainbow</button>
+          <button id="shadingbtn">Shading</button>
+        </div>
+        <h3>Grid Lines</h3>
+        <div>
+          <button id="gridon">On</button>
+          <button id="gridoff">Off</button>
+        </div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="header"><h1>CYBER SKETCH</h1></div>
+      <div class="grid-border">
+        <div id="grids"></div>
+      </div>
+    </div>
+    <div class="right"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
