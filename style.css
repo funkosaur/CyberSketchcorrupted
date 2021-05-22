@@ -66,7 +66,8 @@ body {
   height: 50vh;
   padding: 10px;
   align-items: center;
-  background-color: rgba(255, 50, 255, 0.158);
+  background-color: rgba(255, 50, 255, 0.2);
+  box-shadow: 0 0 60px #05d9e8;
 }
 
 h1 {
@@ -79,7 +80,7 @@ button {
   border: none;
   padding: 10px 15px;
   color: #05d9e8;
-
+  box-shadow: 0 0 20px #ff10f0;
   font-size: 16px;
   cursor: pointer;
 }
@@ -111,9 +112,13 @@ input {
   border-radius: 10px;
   background-color: #bb21b3;
   border: none;
-  padding: 10px 15px;
+
   color: #05d9e8;
 
   font-size: 16px;
   cursor: pointer;
+}
+
+#gridon {
+  padding: 10px 55px;
 }

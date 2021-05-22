@@ -5,7 +5,6 @@ const black = document.querySelector("#blackbtn");
 const rainbow = document.querySelector("#rainbowbtn");
 const shading = document.querySelector("#shadingbtn");
 const gridon = document.querySelector("#gridon");
-const gridoff = document.querySelector("#gridoff");
 let boxes = document.querySelectorAll(".box");
 
 
@@ -15,24 +14,13 @@ gridon.addEventListener("click", () => {
     let boxes = document.querySelectorAll(".box"); 
     gridon.classList.toggle("gridbtn");
     boxes.forEach(box => {box.style.border = "0.2px solid white"});
-    if (gridoff.classList.contains("gridbtn")){
-        gridoff.classList.remove("gridbtn");
-    }
+    if (gridon.classList.contains("gridbtn")){
+        boxes.forEach(box => {box.style.border = "none"});
+        gridon.textContent = "OFF"
+    } else {gridon.textContent = "ON"}
  
 
 });
-
-gridoff.addEventListener("click", () => {
-    let boxes = document.querySelectorAll(".box");
-    gridoff.classList.toggle("gridbtn")
-    boxes.forEach(box => {box.style.border = "none"});
-    
-    if (gridon.classList.contains("gridbtn")){
-        gridon.classList.remove("gridbtn");
-    }
-
-});
-
 
 
 shading.addEventListener("click", () => {
@@ -96,13 +84,22 @@ function scrollFunction() {
 
 }
 
+function randomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
 
 
 function startDraw(boxes) {
     if (black.classList.contains("btns")){
         boxes.target.style.backgroundColor = ("orange");
     }else if (rainbow.classList.contains("btns")){
-        boxes.target.style.backgroundColor = ("green");
+        boxes.target.style.backgroundColor = randomColor();
     }else if (shading.classList.contains("btns")){
         boxes.target.style.backgroundColor = ("red")
     }
