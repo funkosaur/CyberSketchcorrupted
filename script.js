@@ -80,6 +80,9 @@ function scrollFunction() {
         grid.style.gridTemplateRows = (`repeat(${scrolling.value}, 1fr`);
    }
 
+   gridon.classList.remove("gridbtn");
+   gridon.textContent = "ON"
+
   
 
 }
@@ -93,15 +96,34 @@ function randomColor() {
     return color;
   }
 
+function lighten () {
+    let i = 0
+    if (i < 10) {
+        i++;
+    } else if (i = 10) {
+        i = 0;
+    }
+    document.getElementById("display").innerHTML = i;
+}
+
+
 
 
 function startDraw(boxes) {
+    
     if (black.classList.contains("btns")){
         boxes.target.style.backgroundColor = ("orange");
     }else if (rainbow.classList.contains("btns")){
         boxes.target.style.backgroundColor = randomColor();
     }else if (shading.classList.contains("btns")){
-        boxes.target.style.backgroundColor = ("red")
+        /*
+        let currentOpacity = Number(this.style.backgroundColor.slice(-4, -1));
+                if (currentOpacity <= 0.9) {
+                    this.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.1})`;
+                    this.classList.add('gray');
+                    */
+        
+        
     }
     else {boxes.target.style.backgroundColor = ("white");}
     
