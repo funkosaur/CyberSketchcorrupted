@@ -6,9 +6,27 @@ const rainbow = document.querySelector("#rainbowbtn");
 const shading = document.querySelector("#shadingbtn");
 const gridon = document.querySelector("#gridon");
 let boxes = document.querySelectorAll(".box");
+let size = document.querySelector("#size");
 
 scrolling.addEventListener("input", scrollFunction);
 grid.addEventListener("mouseover", startDraw);
+makeBoxes()
+
+function makeBoxes() {
+    for (let i = 0; i < 256; i++) {
+        
+        let divs = document.createElement('div');
+        divs.setAttribute("class", "box")
+        grid.appendChild(divs);
+        
+   }
+
+   for (let i = 0; i< 256; i++){
+        grid.style.gridTemplateColumns = (`repeat(16, 1fr`);
+        grid.style.gridTemplateRows = (`repeat(16, 1fr`);
+   }
+        
+}
 
 gridon.addEventListener("click", () => {
     let boxes = document.querySelectorAll(".box"); 
@@ -60,8 +78,6 @@ rainbow.addEventListener("click", () => {
 
 });
 
-
-
 function scrollFunction() {
     let scrollValue = scrolling.value * scrolling.value;
     
@@ -71,13 +87,13 @@ function scrollFunction() {
         
         let divs = document.createElement('div');
         divs.setAttribute("class", "box")
-        grid.appendChild(divs);
-        
+        grid.appendChild(divs);    
    }
 
    for (let i = 0; i< scrollValue; i++){
         grid.style.gridTemplateColumns = (`repeat(${scrolling.value}, 1fr`);
         grid.style.gridTemplateRows = (`repeat(${scrolling.value}, 1fr`);
+        size.textContent = (`Size ${scrolling.value}x${scrolling.value}`)
    }
 
    gridon.classList.remove("gridbtn");
@@ -102,18 +118,17 @@ function startDraw(boxes) {
     
     
     if (black.classList.contains("btns")){
-        boxes.target.style.backgroundColor = ("orange");
+        boxes.target.style.backgroundColor = ("rgb(248, 97, 9)");
     }else if (rainbow.classList.contains("btns")){
         boxes.target.style.backgroundColor = randomColor();
-    }else if (shading.classList.contains("btns")){
-        let currentOpacity = boxes.target.style.backgroundColor.slice(-5, -2);
-        console.log(currentOpacity.toString())
-                  
-                    if (currentOpacity <= 100) {
-                        boxes.target.style.backgroundColor = `hsl(0%, 0%, ${currentOpacity + 10}%)`};
-                    
-        
-        
+    }else if (shading.classList.contains("btns")){               
+        let currentOpacity = Number(boxes.target.style.backgroundColor.slice(-4, -1));
+        if(currentOpacity == 0) {
+            currentOpacity = 1;
+        }
+        if (currentOpacity <= 1) {
+            boxes.target.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity - 0.1})`;}
+                         
     }
     else {boxes.target.style.backgroundColor = ("white");}
     
