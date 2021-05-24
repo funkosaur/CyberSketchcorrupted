@@ -47,8 +47,8 @@ body {
 }
 
 .grid-border {
-  width: 600px;
-  height: 600px;
+  width: 590px;
+  height: 590px;
   margin-top: 65px;
   margin-bottom: 20px;
 
@@ -93,7 +93,7 @@ input {
 .box {
   background-color: rgb(0, 0, 0, 1);
   border-radius: 1px;
-  border: 0.2px solid white;
+  border: 0.2px solid #05d9e8;
   width: 100%;
   display: inline-block;
 }
@@ -122,4 +122,8 @@ input {
 
 #gridon {
   padding: 10px 55px;
+}
+
+#rstbtn:active {
+  background-color: #bb21b3;
 }

@@ -7,11 +7,13 @@ const shading = document.querySelector("#shadingbtn");
 const gridon = document.querySelector("#gridon");
 let boxes = document.querySelectorAll(".box");
 let size = document.querySelector("#size");
+let resetbtn = document.querySelector("#rstbtn");
 
 scrolling.addEventListener("input", scrollFunction);
 grid.addEventListener("mouseover", startDraw);
+resetbtn.addEventListener("click", scrollFunction);
 makeBoxes()
-
+//initial .box div placement
 function makeBoxes() {
     for (let i = 0; i < 256; i++) {
         
@@ -27,11 +29,11 @@ function makeBoxes() {
    }
         
 }
-
+//showing and removing borders on elements with .box
 gridon.addEventListener("click", () => {
     let boxes = document.querySelectorAll(".box"); 
     gridon.classList.toggle("gridbtn");
-    boxes.forEach(box => {box.style.border = "0.2px solid white"});
+    boxes.forEach(box => {box.style.border = "0.2px solid #05d9e8"});
     if (gridon.classList.contains("gridbtn")){
         boxes.forEach(box => {box.style.border = "none"});
         gridon.textContent = "OFF"
@@ -40,7 +42,7 @@ gridon.addEventListener("click", () => {
 
 });
 
-
+//toggle events for color buttons
 shading.addEventListener("click", () => {
 
     shading.classList.toggle("btns");
@@ -77,7 +79,7 @@ rainbow.addEventListener("click", () => {
     }
 
 });
-
+//scroll function to make and delete divs in grid
 function scrollFunction() {
     let scrollValue = scrolling.value * scrolling.value;
     
@@ -102,6 +104,13 @@ function scrollFunction() {
   
 
 }
+//color randomizers for cyber and rainbow
+function cyber () {
+    let cyberColors = ["#ff124f", "#ff00a0", "#fe75fe", "#7a04eb", "#120458"];
+    let diffColors = cyberColors[Math.floor(Math.random()*cyberColors.length)];
+    return diffColors
+
+}
 
 function randomColor() {
     var letters = '0123456789ABCDEF';
@@ -113,12 +122,12 @@ function randomColor() {
   }
 
 
-
+// function to change the colours of .box divs on mouseover
 function startDraw(boxes) {
     
     
     if (black.classList.contains("btns")){
-        boxes.target.style.backgroundColor = ("rgb(248, 97, 9)");
+        boxes.target.style.backgroundColor = cyber();
     }else if (rainbow.classList.contains("btns")){
         boxes.target.style.backgroundColor = randomColor();
     }else if (shading.classList.contains("btns")){               
